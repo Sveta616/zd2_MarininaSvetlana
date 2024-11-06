@@ -1,0 +1,10 @@
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.AssemblyReference.cache
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.Properties.Resources.resources
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.GenerateResource.cache
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.CoreCompileInputs.cache
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.exe.config
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.exe
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.pdb
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.Form1.resources
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.exe
+C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.pdb
