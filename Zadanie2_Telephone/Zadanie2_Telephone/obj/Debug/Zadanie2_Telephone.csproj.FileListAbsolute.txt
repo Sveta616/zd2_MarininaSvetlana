@@ -8,3 +8,13 @@ C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Za
 C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.Form1.resources
 C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.exe
 C:\Users\Professional\Desktop\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.pdb
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.exe.config
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.exe
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\bin\Debug\Zadanie2_Telephone.pdb
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.AssemblyReference.cache
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.Form1.resources
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.Properties.Resources.resources
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.GenerateResource.cache
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.csproj.CoreCompileInputs.cache
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.exe
+C:\Users\305-11\Desktop\zd2_MarininaSvetlana-new\Zadanie2_Telephone\Zadanie2_Telephone\obj\Debug\Zadanie2_Telephone.pdb

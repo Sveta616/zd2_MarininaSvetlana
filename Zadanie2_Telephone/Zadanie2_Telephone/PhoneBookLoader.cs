@@ -17,12 +17,12 @@ namespace Zadanie2_Telephone
         {
             if (File.Exists("contacts.txt"))
             {
-                var filelines = File.ReadAllLines("contacts.txt");
-                foreach (var lines in filelines)
+                var lines = File.ReadAllLines("contacts.txt");
+                foreach (var line in lines)
                 {
                     try
                     {
-                        var inf = lines.Split(' ');
+                        var inf = line.Split(' ');
                         if (inf.Length == 3)
                         {
                             var contact = new Contact(inf[0], inf[1], inf[2]);
@@ -40,7 +40,8 @@ namespace Zadanie2_Telephone
                 MessageBox.Show("Файл не найден");
             }
         }
-        //Метод для  сохранения нового контакта в файл при помощи LINQ
+
+        //Метод для сохранения нового контакта в файл при помощи LINQ
             public static void Save(PhoneBook phoneBook)
           {
             var inf = phoneBook.AllContacts().Select(newinf => $"{newinf.Name} {newinf.Surname} {newinf.Phone}");

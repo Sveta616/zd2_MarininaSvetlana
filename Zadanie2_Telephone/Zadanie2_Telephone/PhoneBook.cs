@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 namespace Zadanie2_Telephone
 {
     //Kласс для телефонной книги
@@ -48,12 +49,12 @@ namespace Zadanie2_Telephone
          
             File.WriteAllLines("contacts.txt", lines);
         }
-        //Метод для поиска по имени и фамилии
+        //Метод для поиска по имени и фамилии, используя LINQ
         public List<Contact> FindContacts(string fullName)
          {
             return contacts.Where(c => $"{c.Name} {c.Surname}" == fullName).ToList();
          }
-        //Метод для редактирования контакта
+        //Метод для редактирования контакта, используем LINQ
         public bool EditContact(string fullinfo, Contact editContact)
         {
             Contact contact = contacts.FirstOrDefault(c => $"{c.Name} {c.Surname} {c.Phone}" == fullinfo);
@@ -86,8 +87,8 @@ namespace Zadanie2_Telephone
         {
             return contacts.Any( p=> p.Phone == phone);
         }
-     
        
+
     }
 }
 

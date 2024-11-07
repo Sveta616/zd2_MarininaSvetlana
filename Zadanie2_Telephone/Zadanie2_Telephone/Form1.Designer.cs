@@ -36,12 +36,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.AddNewContact = new System.Windows.Forms.Button();
             this.Numbertext = new System.Windows.Forms.TextBox();
             this.Surnametext = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.Find = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Nametxt = new System.Windows.Forms.TextBox();
             this.Surnametxt = new System.Windows.Forms.TextBox();
@@ -50,7 +48,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.NumDel = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Delete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.NameDel = new System.Windows.Forms.TextBox();
             this.SurnameDel = new System.Windows.Forms.TextBox();
@@ -71,14 +68,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.NumEdit = new System.Windows.Forms.TextBox();
-            this.Edit = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.Exit = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxContacts
@@ -94,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(388, 9);
+            this.label1.Location = new System.Drawing.Point(386, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(289, 37);
             this.label1.TabIndex = 0;
@@ -130,15 +132,14 @@
             this.panel1.BackColor = System.Drawing.Color.Plum;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.AddNewContact);
             this.panel1.Controls.Add(this.Numbertext);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Nametext);
             this.panel1.Controls.Add(this.Surnametext);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(25, 26);
+            this.panel1.Location = new System.Drawing.Point(12, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 291);
+            this.panel1.Size = new System.Drawing.Size(238, 259);
             this.panel1.TabIndex = 9;
             // 
             // label5
@@ -160,25 +161,12 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Введите номер телефона";
             // 
-            // AddNewContact
-            // 
-            this.AddNewContact.BackColor = System.Drawing.Color.Orchid;
-            this.AddNewContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddNewContact.Location = new System.Drawing.Point(52, 224);
-            this.AddNewContact.Name = "AddNewContact";
-            this.AddNewContact.Size = new System.Drawing.Size(125, 44);
-            this.AddNewContact.TabIndex = 7;
-            this.AddNewContact.Text = "Сохранить новый контакт";
-            this.AddNewContact.UseVisualStyleBackColor = false;
-            this.AddNewContact.Click += new System.EventHandler(this.AddNewContact_Click);
-            // 
             // Numbertext
             // 
             this.Numbertext.Location = new System.Drawing.Point(63, 181);
             this.Numbertext.Name = "Numbertext";
             this.Numbertext.Size = new System.Drawing.Size(100, 20);
             this.Numbertext.TabIndex = 6;
-            this.Numbertext.TextChanged += new System.EventHandler(this.Numbertext_TextChanged);
             // 
             // Surnametext
             // 
@@ -191,12 +179,11 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Plum;
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.Find);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.Nametxt);
             this.panel2.Controls.Add(this.Surnametxt);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(795, 12);
+            this.panel2.Location = new System.Drawing.Point(795, 62);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 187);
             this.panel2.TabIndex = 10;
@@ -210,18 +197,6 @@
             this.label8.Size = new System.Drawing.Size(78, 25);
             this.label8.TabIndex = 9;
             this.label8.Text = "Поиск";
-            // 
-            // Find
-            // 
-            this.Find.BackColor = System.Drawing.Color.Orchid;
-            this.Find.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Find.Location = new System.Drawing.Point(63, 149);
-            this.Find.Name = "Find";
-            this.Find.Size = new System.Drawing.Size(103, 26);
-            this.Find.TabIndex = 9;
-            this.Find.Text = "Поиск";
-            this.Find.UseVisualStyleBackColor = false;
-            this.Find.Click += new System.EventHandler(this.Find_Click);
             // 
             // label6
             // 
@@ -261,14 +236,13 @@
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.NumDel);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.Delete);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.NameDel);
             this.panel3.Controls.Add(this.SurnameDel);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(795, 216);
+            this.panel3.Location = new System.Drawing.Point(795, 307);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 263);
+            this.panel3.Size = new System.Drawing.Size(236, 240);
             this.panel3.TabIndex = 11;
             // 
             // label12
@@ -296,18 +270,6 @@
             this.label9.Size = new System.Drawing.Size(117, 25);
             this.label9.TabIndex = 9;
             this.label9.Text = "Удаление";
-            // 
-            // Delete
-            // 
-            this.Delete.BackColor = System.Drawing.Color.Orchid;
-            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete.Location = new System.Drawing.Point(66, 207);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(97, 29);
-            this.Delete.TabIndex = 9;
-            this.Delete.Text = "Удалить";
-            this.Delete.UseVisualStyleBackColor = false;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // label10
             // 
@@ -397,7 +359,6 @@
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.NumEdit);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.Edit);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.NameEdit);
             this.panel4.Controls.Add(this.SurnameEdit);
@@ -491,38 +452,70 @@
             this.NumEdit.Size = new System.Drawing.Size(100, 20);
             this.NumEdit.TabIndex = 11;
             // 
-            // Edit
+            // menuStrip1
             // 
-            this.Edit.BackColor = System.Drawing.Color.Orchid;
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit.Location = new System.Drawing.Point(271, 117);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(149, 54);
-            this.Edit.TabIndex = 9;
-            this.Edit.Text = "Редактировать";
-            this.Edit.UseVisualStyleBackColor = false;
-            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // panel5
+            // сохранениеИДобавлениеКонтктовToolStripMenuItem
             // 
-            this.panel5.BackColor = System.Drawing.Color.Plum;
-            this.panel5.Controls.Add(this.Exit);
-            this.panel5.Location = new System.Drawing.Point(795, 492);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(236, 92);
-            this.panel5.TabIndex = 13;
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузкаToolStripMenuItem,
+            this.добавлениеToolStripMenuItem,
+            this.поискToolStripMenuItem,
+            this.удалениеToolStripMenuItem,
+            this.редактированиеToolStripMenuItem,
+            this.выйтиToolStripMenuItem});
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem.Name = "сохранениеИДобавлениеКонтктовToolStripMenuItem";
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.сохранениеИДобавлениеКонтктовToolStripMenuItem.Text = "Выберите действие";
             // 
-            // Exit
+            // поискToolStripMenuItem
             // 
-            this.Exit.BackColor = System.Drawing.Color.Orchid;
-            this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Exit.Location = new System.Drawing.Point(47, 26);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(140, 48);
-            this.Exit.TabIndex = 12;
-            this.Exit.Text = "Выйти из программы";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.поискToolStripMenuItem.Text = "Поиск";
+            this.поискToolStripMenuItem.Click += new System.EventHandler(this.поискToolStripMenuItem_Click);
+            // 
+            // удалениеToolStripMenuItem
+            // 
+            this.удалениеToolStripMenuItem.Name = "удалениеToolStripMenuItem";
+            this.удалениеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.удалениеToolStripMenuItem.Text = "Удаление";
+            this.удалениеToolStripMenuItem.Click += new System.EventHandler(this.удалениеToolStripMenuItem_Click);
+            // 
+            // редактированиеToolStripMenuItem
+            // 
+            this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
+            this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.редактированиеToolStripMenuItem.Text = "Редактирование";
+            this.редактированиеToolStripMenuItem.Click += new System.EventHandler(this.редактированиеToolStripMenuItem_Click);
+            // 
+            // выйтиToolStripMenuItem
+            // 
+            this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.выйтиToolStripMenuItem.Text = "Выйти";
+            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
+            // 
+            // добавлениеToolStripMenuItem
+            // 
+            this.добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
+            this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.добавлениеToolStripMenuItem.Text = "Добавление";
+            this.добавлениеToolStripMenuItem.Click += new System.EventHandler(this.добавлениеToolStripMenuItem_Click);
+            // 
+            // загрузкаToolStripMenuItem
+            // 
+            this.загрузкаToolStripMenuItem.Name = "загрузкаToolStripMenuItem";
+            this.загрузкаToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.загрузкаToolStripMenuItem.Text = "Вывод всех контактов";
+            this.загрузкаToolStripMenuItem.Click += new System.EventHandler(this.загрузкаToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -530,13 +523,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(1059, 596);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBoxContacts);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -548,7 +542,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,12 +558,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button AddNewContact;
         private System.Windows.Forms.TextBox Numbertext;
         private System.Windows.Forms.TextBox Surnametext;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Find;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Nametxt;
         private System.Windows.Forms.TextBox Surnametxt;
@@ -576,7 +569,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox NameDel;
         private System.Windows.Forms.TextBox SurnameDel;
@@ -591,7 +583,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox NumEdit;
-        private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;
@@ -600,8 +591,14 @@
         private System.Windows.Forms.TextBox NameOld;
         private System.Windows.Forms.TextBox SurnameOld;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem сохранениеИДобавлениеКонтктовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выйтиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавлениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузкаToolStripMenuItem;
     }
 }
 

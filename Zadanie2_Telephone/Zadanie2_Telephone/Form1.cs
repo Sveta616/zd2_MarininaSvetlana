@@ -21,17 +21,18 @@ namespace Zadanie2_Telephone
         public Form1()
         {
             InitializeComponent();
-          
-          
+            добавлениеToolStripMenuItem.Enabled = false;
+
+
         }
         //Метод для загрузки контактов из файла
         private void LoadContacts()
         {
             PhoneBookLoader.Load(phoneBook);
-            RefreshContact();
+             NewList();
         }
         //Метод для обновления содержимого listbox 
-        private void RefreshContact()
+        private void NewList()
         {
             listBoxContacts.Items.Clear();
             foreach (var contact in phoneBook.AllContacts())
@@ -42,68 +43,50 @@ namespace Zadanie2_Telephone
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadContacts();
+           
         }
-        //Кнопка для сохранения в файл/listbox нового контакта
-        private void AddNewContact_Click(object sender, EventArgs e)
+        //Метод для проверки на пустые поля
+        private bool ProverkaOfSpace(string p)
         {
-
-            string name = Nametext.Text;
-            string surname = Surnametext.Text;
-            string phone = Numbertext.Text;
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrEmpty(phone))
+            if (string.IsNullOrWhiteSpace(p))
             {
                 MessageBox.Show("Заполните все поля");
-                return;
+                return false;
             }
-            if (name.Length == 0 || !char.IsUpper(name[0]))
+            return true;
+        }
+    //Метод для проверки на буквы
+       private bool ProverkaOfLetter(string name)
+        {
+           
+            if (!char.IsUpper(name[0]))
             {
-                MessageBox.Show("Имя должно начинаться с заглавной буквы");
-                return;
+                MessageBox.Show("Имя и Фамилия должны начинаться с заглавной буквы");
+                return false;
             }
             for (int i = 1; i < name.Length; i++)
             {
                 if (!char.IsLower(name[i]))
                 {
-                    MessageBox.Show("Имя должно содержать только буквы, начиная с заглавной");
-                    return;
+                    MessageBox.Show("Имя и Фамилия должны содержать только буквы, начиная с заглавной");
+                    return false;
                 }
             }
-
-      
-            if (surname.Length == 0 || !char.IsUpper(surname[0]))
-            {
-                MessageBox.Show("Фамилия должна начинаться с заглавной буквы");
-                return;
-            }
-            for (int i = 1; i < surname.Length; i++)
-            {
-                if (!char.IsLower(surname[i]))
-                {
-                    MessageBox.Show("Фамилия должна содержать только буквы, начиная с заглавной");
-                    return;
-                }
-            }
-
-        
+            return true;
+        }
+        //Метод для проверки на цифры
+        private bool ProverkaOfDigit(string phone)
+        {
             if (phone.Length != 11 || !phone.All(char.IsDigit) || !phone.StartsWith("89"))
             {
                 MessageBox.Show("Номер телефона должен содержать ровно 11 цифр и начинаться с '89'");
-                return;
+                return false;
             }
-            if (phoneBook.PhoneExists(phone))
-            {
-                MessageBox.Show("Этот номер телефона уже существует");
-                return;
-            }
-
-            var contact = new Contact(name, surname, phone);
-            phoneBook.AddContact(contact);
-            listBoxContacts.Items.Add(contact);
-            Clear();
-            PhoneBookLoader.Save(phoneBook);
-            MessageBox.Show("Контакт сохранен!");
+            return true;
         }
+
+       
+     
 
     //Метод для очистки полей 
         private void Clear()
@@ -112,54 +95,38 @@ namespace Zadanie2_Telephone
            Surnametext.Clear(); 
            Numbertext.Clear();
         }
-        //Кнопка для поиска контакта по имени и фамилии
-        private void Find_Click(object sender, EventArgs e)
-        {
-
-            string name = Nametxt.Text;
-            string surname = Surnametxt.Text;
+     
+ 
 
   
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname))
+     //Метод для выхода из приложения
+        private void ExitApp()
+        {
+            SaveFile();
+            Application.Exit();
+        }
+        //Метод для сохранения информации в файл
+        private void SaveFile()
+        {
+            var inf = phoneBook.AllContacts().Select(c => $"{c.Name} {c.Surname} {c.Phone}").ToList();
+            File.WriteAllLines("contacts.txt", inf);
+        }
+      
+
+        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string name = Nametxt.Text;
+            string surname = Surnametxt.Text;
+            if (!ProverkaOfSpace(name) || !ProverkaOfSpace(surname))
             {
-                MessageBox.Show("Заполните все поля");
                 return;
             }
-
-         
-            if (name.Length == 0 || !char.IsUpper(name[0]))
+            if (!ProverkaOfLetter(name) || !ProverkaOfLetter(surname))
             {
-                MessageBox.Show("Имя должно начинаться с заглавной буквы");
                 return;
             }
-            for (int i = 1; i < name.Length; i++)
-            {
-                if (!char.IsLower(name[i]))
-                {
-                    MessageBox.Show("Имя должно содержать только буквы, начиная с заглавной");
-                    return;
-                }
-            }
-
-            if (surname.Length == 0 || !char.IsUpper(surname[0]))
-            {
-                MessageBox.Show("Фамилия должна начинаться с заглавной буквы");
-                return;
-            }
-            for (int i = 1; i < surname.Length; i++)
-            {
-                if (!char.IsLower(surname[i]))
-                {
-                    MessageBox.Show("Фамилия должна содержать только буквы, начиная с заглавной");
-                    return;
-                }
-            }
-
 
             string fullName = $"{name} {surname}";
-
-
-
             var contacts = phoneBook.FindContacts(fullName);
 
             if (contacts.Count > 0)
@@ -176,40 +143,23 @@ namespace Zadanie2_Telephone
                 MessageBox.Show("Контакт не найден");
             }
         }
-
-        private void Numbertext_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        //Кнопка для удаления контакта
-        private void Delete_Click(object sender, EventArgs e)
+       //Меню при нажатии удаляет контакт
+        private void удалениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string name = NameDel.Text;
             string surname = SurnameDel.Text;
             string phone = NumDel.Text;
-
-   
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(phone))
+            if (!ProverkaOfSpace(name) || !ProverkaOfSpace(surname) || !ProverkaOfSpace(phone))
             {
-                MessageBox.Show("Заполните все поля");
                 return;
             }
 
-            if (name.Length == 0 || !char.IsUpper(name[0]) || !name.All(char.IsLetter))
+            if (!ProverkaOfLetter(name) || !ProverkaOfLetter(surname))
             {
-                MessageBox.Show("Имя должно начинаться с заглавной буквы и содержать только буквы");
                 return;
             }
-
-            if (surname.Length == 0 || !char.IsUpper(surname[0]) || !surname.All(char.IsLetter))
+            if (!ProverkaOfDigit(phone))
             {
-                MessageBox.Show("Фамилия должна начинаться с заглавной буквы и содержать только буквы");
-                return;
-            }
-
-            if (phone.Length != 11 || !phone.All(char.IsDigit) || !phone.StartsWith("89"))
-            {
-                MessageBox.Show("Номер телефона должен содержать ровно 11 цифр и начинаться с '89'");
                 return;
             }
 
@@ -217,7 +167,7 @@ namespace Zadanie2_Telephone
 
             if (phoneBook.RemoveContact(fullinf))
             {
-                RefreshContact();
+                NewList();
                 Clear();
                 MessageBox.Show("Контакт удалён");
             }
@@ -226,8 +176,8 @@ namespace Zadanie2_Telephone
                 MessageBox.Show("Такого контакта нет");
             }
         }
-        //Кнопка для редактирования контакта
-        private void Edit_Click(object sender, EventArgs e)
+        //Меню при нажатии редактирует контакт
+        private void редактированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string name = NameOld.Text;
             string surname = SurnameOld.Text;
@@ -235,58 +185,77 @@ namespace Zadanie2_Telephone
             string name2 = NameEdit.Text;
             string surname2 = SurnameEdit.Text;
             string phone2 = NumEdit.Text;
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(surname2) || string.IsNullOrWhiteSpace(phone2) || string.IsNullOrWhiteSpace(name2))
+            if (!ProverkaOfSpace(name) || !ProverkaOfSpace(surname) || !ProverkaOfSpace(phone) || !ProverkaOfSpace(name2) || !ProverkaOfSpace(surname2) || !ProverkaOfSpace(phone2))
             {
-                MessageBox.Show("Заполните все поля");
+                return;
+            }
+            if (!ProverkaOfLetter(name) || !ProverkaOfLetter(surname) || !ProverkaOfLetter(name2) || !ProverkaOfLetter(surname2))
+            {
                 return;
             }
 
-            if (name.Length == 0 || !char.IsUpper(name[0]) || !name.All(char.IsLetter)|| name2.Length == 0 || !char.IsUpper(name2[0]) || !name2.All(char.IsLetter))
+            if (!ProverkaOfDigit(phone) || !ProverkaOfDigit(phone2))
             {
-                MessageBox.Show("Имя должно начинаться с заглавной буквы и содержать только буквы");
                 return;
             }
+            string old = $"{NameOld.Text} {SurnameOld.Text} {NumberOld.Text}";
+            Contact edit = new Contact(NameEdit.Text, SurnameEdit.Text, NumEdit.Text);
 
-            if (surname.Length == 0 || !char.IsUpper(surname[0]) || !surname.All(char.IsLetter)|| surname2.Length == 0 || !char.IsUpper(surname2[0]) || !surname2.All(char.IsLetter))
-            {
-                MessageBox.Show("Фамилия должна начинаться с заглавной буквы и содержать только буквы");
-                return;
-            }
-
-            if (phone.Length != 11 || !phone.All(char.IsDigit) || !phone.StartsWith("89")|| phone2.Length != 11 || !phone2.All(char.IsDigit) || !phone2.StartsWith("89"))
-            {
-                MessageBox.Show("Номер телефона должен содержать ровно 11 цифр и начинаться с '89'");
-                return;
-            }
-            string old = $"{NameOld.Text} {SurnameOld.Text} {NumberOld.Text}"; 
-            Contact updated = new Contact(NameEdit.Text, SurnameEdit.Text, NumEdit.Text); 
-
-            if (phoneBook.EditContact(old, updated))
+            if (phoneBook.EditContact(old, edit))
             {
                 MessageBox.Show("Контакт отредактирован");
-                RefreshContact(); 
+                NewList();
             }
             else
             {
                 MessageBox.Show("Контакт не найден");
             }
         }
-     //Метод для выхода из приложения
-        private void ExitApp()
+        //Меню при нажатии выходит из приложения
+        private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFile();
-            Application.Exit();
+            ExitApp();
         }
-        //Метод для сохранения информации в файл
-        private void SaveFile()
+        //Меню при нажатии добавляет в файл новый контакт
+        private void добавлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var lines = phoneBook.AllContacts().Select(c => $"{c.Name} {c.Surname} {c.Phone}").ToList();
-            File.WriteAllLines("contacts.txt", lines);
+            string name = Nametext.Text;
+            string surname = Surnametext.Text;
+            string phone = Numbertext.Text;
+            if (!ProverkaOfSpace(name) || !ProverkaOfSpace(surname) || !ProverkaOfSpace(phone))
+            {
+                return;
+            }
+            if (!ProverkaOfLetter(name) || !ProverkaOfLetter(surname))
+            {
+                return;
+            }
+            if (!ProverkaOfDigit(phone))
+            {
+                return;
+            }
+
+            if (phoneBook.PhoneExists(phone))
+            {
+                MessageBox.Show("Этот номер телефона уже существует");
+                return;
+            }
+
+            var contact = new Contact(name, surname, phone);
+            phoneBook.AddContact(contact);
+            listBoxContacts.Items.Add(contact);
+            Clear();
+            PhoneBookLoader.Save(phoneBook);
+            MessageBox.Show("Контакт сохранен!");
+           
         }
-        //Кнопка для реализации выхода из приложения
-        private void Exit_Click(object sender, EventArgs e)
+        //Меню при нажатии читает из файла в лист
+        private void загрузкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-              ExitApp();
+            LoadContacts();
+            добавлениеToolStripMenuItem.Enabled = true;
+
+
         }
     }
 }
